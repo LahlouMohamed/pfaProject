@@ -16,5 +16,5 @@ public class Marque {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    private String Designation;
+    private String designation;
 }
