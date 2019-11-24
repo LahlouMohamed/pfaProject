@@ -1,14 +1,16 @@
 package com.emsi.pfaProject.entities;
 
-import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import lombok.ToString;
+
 import javax.persistence.*;
 
 
 @Entity
-@Data @NoArgsConstructor  @ToString
+@Data
+@NoArgsConstructor
+@ToString
 @Inheritance(strategy = InheritanceType.JOINED)
 public class Utilisateur {
 
@@ -26,11 +28,11 @@ public class Utilisateur {
 
     private String email;
 
-    public Utilisateur(String login,String pwd,String nom,String prenom,String email){
-        this.login=login;
-        this.prenom=prenom;
-        this.nom=nom;
-        this.pwd=pwd;
-        this.email=email;
+    public Utilisateur(String login, String pwd, String nom, String prenom, String email) {
+        this.login = login;
+        this.prenom = prenom;
+        this.nom = nom;
+        this.pwd = pwd;
+        this.email = email;
     }
 }
