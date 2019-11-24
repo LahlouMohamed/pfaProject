@@ -8,7 +8,7 @@ import javax.persistence.*;
 
 
 @Entity
-@Data @NoArgsConstructor @AllArgsConstructor @ToString
+@Data @NoArgsConstructor  @ToString
 @Inheritance(strategy = InheritanceType.JOINED)
 public class Utilisateur {
 
@@ -18,7 +18,7 @@ public class Utilisateur {
 
     private String login;
 
-    private String Pwd;
+    private String pwd;
 
     private String nom;
 
@@ -26,4 +26,11 @@ public class Utilisateur {
 
     private String email;
 
+    public Utilisateur(String login,String pwd,String nom,String prenom,String email){
+        this.login=login;
+        this.prenom=prenom;
+        this.nom=nom;
+        this.pwd=pwd;
+        this.email=email;
+    }
 }

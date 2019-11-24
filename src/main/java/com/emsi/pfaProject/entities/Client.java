@@ -20,10 +20,9 @@ public class Client extends Utilisateur {
 
     private String cin;
 
-    public Client(Long id,String login,String pwd,String nom,String prenom,String email,Long idC,String cin){
-        super(id,login,pwd,nom,prenom,email);
+    public Client(String login,String pwd,String nom,String prenom,String email,String cin){
+        super(login,pwd,nom,prenom,email);
         this.cin=cin;
-        this.id=idC;
     }
 
 }
