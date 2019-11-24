@@ -17,7 +17,7 @@ public class Model {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    private String Designation;
+    private String designation;
 	@ManyToOne(fetch = FetchType.LAZY)
-	private Voiture voiture;
+	private Marque marque;
 }

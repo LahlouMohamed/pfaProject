@@ -17,8 +17,12 @@ public class Voiture {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    private String Immatriculation;
-    private Date DateCirculation;
-	@ManyToOne(fetch = FetchType.LAZY)
-	private Client client;
+    private String immatriculation;
+    private Date dateCirculation;
+
+    @ManyToOne(fetch = FetchType.LAZY)
+    private Client client;
+
+    @ManyToOne(fetch = FetchType.LAZY)
+    private Model model;
 }

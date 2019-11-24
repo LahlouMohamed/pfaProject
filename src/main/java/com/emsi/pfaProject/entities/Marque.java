@@ -17,6 +17,4 @@ public class Marque {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     private String Designation;
-	@ManyToOne(fetch = FetchType.LAZY)
-	private Marque marque;
 }
