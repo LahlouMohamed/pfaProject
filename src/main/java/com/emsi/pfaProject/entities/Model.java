@@ -18,6 +18,11 @@ public class Model {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     private String designation;
-	@ManyToOne(fetch = FetchType.LAZY)
+    private String version;
+    private String energie;
+    private String boiteVitesse;
+    private int puissFiscal;
+
+	@ManyToOne()
 	private Marque marque;
 }

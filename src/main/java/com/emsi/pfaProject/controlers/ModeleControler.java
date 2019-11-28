@@ -1,11 +1,15 @@
 package com.emsi.pfaProject.controlers;
 
+import com.emsi.pfaProject.entities.Model;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.CrossOrigin;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.emsi.pfaProject.repositories.IModelRepository;
+
+import java.util.List;
 
 @RestController
 @RequestMapping(value = "/modeles/")
@@ -13,4 +17,10 @@ import com.emsi.pfaProject.repositories.IModelRepository;
 public class ModeleControler {
 	@Autowired
 	private IModelRepository modeleRepository;
+
+	@GetMapping("/all")
+	public List<Model> findAll(){
+
+		return modeleRepository.findAll();
+	}
 }
