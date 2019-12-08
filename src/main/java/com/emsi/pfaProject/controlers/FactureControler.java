@@ -1,7 +1,10 @@
 package com.emsi.pfaProject.controlers;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.CrossOrigin;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -21,5 +24,9 @@ public class FactureControler {
 	@PostMapping(value="new")
 	public Facture newType(@RequestBody Facture facture) {
 		return factureRepository.save(facture);
+	}
+	@GetMapping("all")
+	public List<Facture> getAll(){
+		return factureRepository.findAll();
 	}
 }
