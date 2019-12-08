@@ -6,13 +6,7 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.ManyToOne;
 
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.NoArgsConstructor;
-import lombok.ToString;
-
 @Entity
-@Data @NoArgsConstructor @AllArgsConstructor @ToString
 public class Etat {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -22,4 +16,48 @@ public class Etat {
 	
 	@ManyToOne
 	private Intervention intervention;
+
+	public Etat() {
+		super();
+	}
+
+	public Etat(Long id, int dureeEstime, String commentaire, Intervention intervention) {
+		super();
+		this.id = id;
+		this.dureeEstime = dureeEstime;
+		this.commentaire = commentaire;
+		this.intervention = intervention;
+	}
+
+	public Long getId() {
+		return id;
+	}
+
+	public void setId(Long id) {
+		this.id = id;
+	}
+
+	public int getDureeEstime() {
+		return dureeEstime;
+	}
+
+	public void setDureeEstime(int dureeEstime) {
+		this.dureeEstime = dureeEstime;
+	}
+
+	public String getCommentaire() {
+		return commentaire;
+	}
+
+	public void setCommentaire(String commentaire) {
+		this.commentaire = commentaire;
+	}
+
+	public Intervention getIntervention() {
+		return intervention;
+	}
+
+	public void setIntervention(Intervention intervention) {
+		this.intervention = intervention;
+	}
 }
