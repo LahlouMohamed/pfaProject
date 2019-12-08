@@ -10,13 +10,7 @@ import javax.persistence.Id;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.NoArgsConstructor;
-import lombok.ToString;
-
 @Entity
-@Data @NoArgsConstructor @AllArgsConstructor @ToString
 public class Intervention {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -33,5 +27,77 @@ public class Intervention {
 	
 	@OneToMany
 	private List<Piece> pieces;
+
+	public Intervention() {
+		super();
+	}
+
+	public Intervention(Long id, Date dateDebut, Date dateFin, String commentaire, Type type, Facture facture,
+			List<Piece> pieces) {
+		super();
+		this.id = id;
+		this.dateDebut = dateDebut;
+		this.dateFin = dateFin;
+		this.commentaire = commentaire;
+		this.type = type;
+		this.facture = facture;
+		this.pieces = pieces;
+	}
+
+	public Long getId() {
+		return id;
+	}
+
+	public void setId(Long id) {
+		this.id = id;
+	}
+
+	public Date getDateDebut() {
+		return dateDebut;
+	}
+
+	public void setDateDebut(Date dateDebut) {
+		this.dateDebut = dateDebut;
+	}
+
+	public Date getDateFin() {
+		return dateFin;
+	}
+
+	public void setDateFin(Date dateFin) {
+		this.dateFin = dateFin;
+	}
+
+	public String getCommentaire() {
+		return commentaire;
+	}
+
+	public void setCommentaire(String commentaire) {
+		this.commentaire = commentaire;
+	}
+
+	public Type getType() {
+		return type;
+	}
+
+	public void setType(Type type) {
+		this.type = type;
+	}
+
+	public Facture getFacture() {
+		return facture;
+	}
+
+	public void setFacture(Facture facture) {
+		this.facture = facture;
+	}
+
+	public List<Piece> getPieces() {
+		return pieces;
+	}
+
+	public void setPieces(List<Piece> pieces) {
+		this.pieces = pieces;
+	}
 	
 }
