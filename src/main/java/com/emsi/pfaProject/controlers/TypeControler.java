@@ -2,9 +2,12 @@ package com.emsi.pfaProject.controlers;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.CrossOrigin;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.emsi.pfaProject.entities.Type;
 import com.emsi.pfaProject.repositories.ITypeRepository;
 
 @RestController
@@ -13,4 +16,9 @@ import com.emsi.pfaProject.repositories.ITypeRepository;
 public class TypeControler {
 	@Autowired
 	private ITypeRepository typeRepository;
+	
+	@PostMapping(value="new")
+	public Type newType(@RequestBody Type type) {
+		return typeRepository.save(type);
+	}
 }
