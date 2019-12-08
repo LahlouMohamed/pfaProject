@@ -1,18 +1,9 @@
 package com.emsi.pfaProject.entities;
 
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.NoArgsConstructor;
-import lombok.ToString;
-
 import javax.persistence.*;
 import java.util.Date;
 
 @Entity
-@Data
-@NoArgsConstructor
-@AllArgsConstructor
-@ToString
 public class Voiture {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -25,4 +16,47 @@ public class Voiture {
 
     @ManyToOne(fetch = FetchType.LAZY)
     private Model model;
+
+    public Voiture() {
+    }
+
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
+    }
+
+    public String getImmatriculation() {
+        return immatriculation;
+    }
+
+    public void setImmatriculation(String immatriculation) {
+        this.immatriculation = immatriculation;
+    }
+
+    public Date getDateCirculation() {
+        return dateCirculation;
+    }
+
+    public void setDateCirculation(Date dateCirculation) {
+        this.dateCirculation = dateCirculation;
+    }
+
+    public Client getClient() {
+        return client;
+    }
+
+    public void setClient(Client client) {
+        this.client = client;
+    }
+
+    public Model getModel() {
+        return model;
+    }
+
+    public void setModel(Model model) {
+        this.model = model;
+    }
 }

@@ -1,13 +1,11 @@
 package com.emsi.pfaProject.controlers;
 
 import java.io.Serializable;
+import java.util.List;
 
+import com.emsi.pfaProject.entities.Marque;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.CrossOrigin;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import com.emsi.pfaProject.entities.Intervention;
 import com.emsi.pfaProject.repositories.IInterventionRepository;
@@ -22,5 +20,10 @@ public class InterventionControler implements Serializable{
 	@PostMapping(value="new")
 	public Intervention newIntervention(@RequestBody Intervention intervention) {
 		return interventionRepository.save(intervention);
+	}
+
+	@GetMapping("/all")
+	public List<Intervention> findAll(){
+		return interventionRepository.findAll();
 	}
 }

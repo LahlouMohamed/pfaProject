@@ -1,18 +1,8 @@
 package com.emsi.pfaProject.entities;
 
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.NoArgsConstructor;
-import lombok.ToString;
-
 import javax.persistence.*;
-import java.util.Date;
 
 @Entity
-@Data
-@NoArgsConstructor
-@AllArgsConstructor
-@ToString
 public class Model {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -23,6 +13,66 @@ public class Model {
     private String boiteVitesse;
     private int puissFiscal;
 
-	@ManyToOne()
-	private Marque marque;
+    @ManyToOne()
+    private Marque marque;
+
+    public Model() {
+    }
+
+
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
+    }
+
+    public String getDesignation() {
+        return designation;
+    }
+
+    public void setDesignation(String designation) {
+        this.designation = designation;
+    }
+
+    public String getVersion() {
+        return version;
+    }
+
+    public void setVersion(String version) {
+        this.version = version;
+    }
+
+    public String getEnergie() {
+        return energie;
+    }
+
+    public void setEnergie(String energie) {
+        this.energie = energie;
+    }
+
+    public String getBoiteVitesse() {
+        return boiteVitesse;
+    }
+
+    public void setBoiteVitesse(String boiteVitesse) {
+        this.boiteVitesse = boiteVitesse;
+    }
+
+    public int getPuissFiscal() {
+        return puissFiscal;
+    }
+
+    public void setPuissFiscal(int puissFiscal) {
+        this.puissFiscal = puissFiscal;
+    }
+
+    public Marque getMarque() {
+        return marque;
+    }
+
+    public void setMarque(Marque marque) {
+        this.marque = marque;
+    }
 }

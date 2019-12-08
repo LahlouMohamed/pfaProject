@@ -8,9 +8,6 @@ import javax.persistence.Entity;
 import javax.persistence.PrimaryKeyJoinColumn;
 
 @Entity
-@Data
-@NoArgsConstructor
-@ToString
 @PrimaryKeyJoinColumn(name = "id")
 public class Client extends Utilisateur {
 
@@ -18,6 +15,17 @@ public class Client extends Utilisateur {
 
     public Client(String login, String pwd, String nom, String prenom, String email, String cin) {
         super(login, pwd, nom, prenom, email);
+        this.cin = cin;
+    }
+
+    public Client() {
+    }
+
+    public String getCin() {
+        return cin;
+    }
+
+    public void setCin(String cin) {
         this.cin = cin;
     }
 }

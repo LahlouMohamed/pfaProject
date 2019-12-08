@@ -10,9 +10,6 @@ import java.util.Date;
 
 
 @Entity
-@Data
-@NoArgsConstructor
-@ToString
 @PrimaryKeyJoinColumn(name = "id")
 public class Garagiste extends Utilisateur {
 
@@ -32,4 +29,38 @@ public class Garagiste extends Utilisateur {
         this.anneesExperience = anneesExperience;
     }
 
+    public Garagiste() {
+    }
+
+    public Date getDateNaissance() {
+        return dateNaissance;
+    }
+
+    public void setDateNaissance(Date dateNaissance) {
+        this.dateNaissance = dateNaissance;
+    }
+
+    public int getAnneesExperience() {
+        return anneesExperience;
+    }
+
+    public void setAnneesExperience(int anneesExperience) {
+        this.anneesExperience = anneesExperience;
+    }
+
+    public String getSpecialite() {
+        return specialite;
+    }
+
+    public void setSpecialite(String specialite) {
+        this.specialite = specialite;
+    }
+
+    public Date getDateEmbauche() {
+        return dateEmbauche;
+    }
+
+    public void setDateEmbauche(Date dateEmbauche) {
+        this.dateEmbauche = dateEmbauche;
+    }
 }
