@@ -3,7 +3,6 @@ package com.emsi.pfaProject.controlers;
 import java.io.Serializable;
 import java.util.List;
 
-import com.emsi.pfaProject.entities.Marque;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
@@ -22,7 +21,7 @@ public class InterventionControler implements Serializable{
 		return interventionRepository.save(intervention);
 	}
 
-	@GetMapping("/all")
+	@GetMapping("all")
 	public List<Intervention> findAll(){
 		return interventionRepository.findAll();
 	}

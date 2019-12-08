@@ -1,8 +1,5 @@
 package com.emsi.pfaProject.entities;
 
-import lombok.Data;
-import lombok.NoArgsConstructor;
-import lombok.ToString;
 
 import javax.persistence.Entity;
 import javax.persistence.PrimaryKeyJoinColumn;
