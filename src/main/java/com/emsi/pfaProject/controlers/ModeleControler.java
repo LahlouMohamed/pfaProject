@@ -3,6 +3,10 @@ package com.emsi.pfaProject.controlers;
 import com.emsi.pfaProject.entities.Model;
 import com.emsi.pfaProject.repositories.IModelRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Pageable;
+import org.springframework.data.domain.Sort;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -15,8 +19,10 @@ public class ModeleControler {
 	private IModelRepository modeleRepository;
 
 	@GetMapping("/all")
-	public List<Model> findAll(){
-		return modeleRepository.findAll();
+	public Page<Model> findAll(@RequestParam("page") int page , @RequestParam("size")int size){
+		Sort sort = Sort.by(new Sort.Order(Sort.Direction.ASC, "designation"));
+		Pageable pageable = PageRequest.of(page, size, sort);
+		return modeleRepository.findAll(pageable);
 	}
 
 	@PostMapping("/add")
