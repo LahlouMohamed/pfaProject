@@ -25,4 +25,10 @@ public class InterventionControler implements Serializable{
 	public List<Intervention> findAll(){
 		return interventionRepository.findAll();
 	}
+	
+	@DeleteMapping(value="delete/{id}")
+	public boolean deleteIntervention(@PathVariable Long id) {
+		interventionRepository.deleteById(id);
+		return true;
+	}
 }
