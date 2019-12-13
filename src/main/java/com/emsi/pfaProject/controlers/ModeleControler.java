@@ -1,13 +1,9 @@
 package com.emsi.pfaProject.controlers;
 
 import com.emsi.pfaProject.entities.Model;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.CrossOrigin;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
-
 import com.emsi.pfaProject.repositories.IModelRepository;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -20,7 +16,11 @@ public class ModeleControler {
 
 	@GetMapping("/all")
 	public List<Model> findAll(){
-
 		return modeleRepository.findAll();
+	}
+
+	@PostMapping("/add")
+	public Model add(@RequestBody Model model){
+		return modeleRepository.save(model);
 	}
 }
