@@ -1,6 +1,7 @@
 package com.emsi.pfaProject.entities;
 
 import javax.persistence.*;
+import java.util.List;
 
 
 @Entity
@@ -8,9 +9,6 @@ import javax.persistence.*;
 public class Utilisateur {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
-
     private String login;
 
     private String pwd;
@@ -21,6 +19,9 @@ public class Utilisateur {
 
     private String email;
 
+    @ManyToMany
+    private List<Role> roles;
+
     public Utilisateur(String login, String pwd, String nom, String prenom, String email) {
         this.login = login;
         this.prenom = prenom;
@@ -30,14 +31,6 @@ public class Utilisateur {
     }
 
     public Utilisateur() {
-    }
-
-    public Long getId() {
-        return id;
-    }
-
-    public void setId(Long id) {
-        this.id = id;
     }
 
     public String getLogin() {
