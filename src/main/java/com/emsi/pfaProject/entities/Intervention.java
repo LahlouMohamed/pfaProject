@@ -27,13 +27,16 @@ public class Intervention {
 	
 	@OneToMany
 	private List<Piece> pieces;
+	
+	@OneToMany
+	private List<Etat> etats;
 
 	public Intervention() {
 		super();
 	}
 
 	public Intervention(Long id, Date dateDebut, Date dateFin, String commentaire, Type type, Facture facture,
-			List<Piece> pieces) {
+			List<Piece> pieces, List<Etat> etats) {
 		super();
 		this.id = id;
 		this.dateDebut = dateDebut;
@@ -42,6 +45,15 @@ public class Intervention {
 		this.type = type;
 		this.facture = facture;
 		this.pieces = pieces;
+		this.etats = etats;
+	}
+
+	public List<Etat> getEtats() {
+		return etats;
+	}
+
+	public void setEtats(List<Etat> etats) {
+		this.etats = etats;
 	}
 
 	public Long getId() {
