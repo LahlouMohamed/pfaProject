@@ -1,25 +1,30 @@
 package com.emsi.pfaProject;
 
+import com.emsi.pfaProject.entities.Garagiste;
 import com.emsi.pfaProject.entities.Marque;
 import com.emsi.pfaProject.entities.Model;
+import com.emsi.pfaProject.entities.Utilisateur;
+import com.emsi.pfaProject.repositories.IGaragisteRepository;
 import com.emsi.pfaProject.repositories.IMarqueRepository;
 import com.emsi.pfaProject.repositories.IModelRepository;
+import com.emsi.pfaProject.repositories.IUtilisateurRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.ApplicationArguments;
 import org.springframework.boot.ApplicationRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
+import java.util.Date;
 import java.util.Random;
 
-@SpringBootApplication(exclude = {
-        org.springframework.boot.autoconfigure.security.servlet.SecurityAutoConfiguration.class}
-)
+@SpringBootApplication
 public class PfaProjectApplication implements ApplicationRunner {
     @Autowired
     private IMarqueRepository iMarqueRepository;
     @Autowired
     private IModelRepository iModelRepository;
+    @Autowired
+    private IGaragisteRepository iGaragisteRepository;
 
     public static void main(String[] args) {
         SpringApplication.run(PfaProjectApplication.class, args);
@@ -32,6 +37,9 @@ public class PfaProjectApplication implements ApplicationRunner {
     }
 
     public void insertMarquesModels() {
+        Garagiste g1=new Garagiste("admin", "admin", null, null, null,
+                null, 2, null, null);
+        iGaragisteRepository.save(g1);
         Marque marque = new Marque();
         Model model = new Model();
         Random r = new Random();
