@@ -4,7 +4,6 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.ManyToOne;
 
 @Entity
 public class Etat {
@@ -13,20 +12,27 @@ public class Etat {
 	private Long id;
 	private int dureeEstime;
 	private String commentaire;
+	private boolean faite;
 	
-	@ManyToOne
-	private Intervention intervention;
+	public boolean isFaite() {
+		return faite;
+	}
+
+	public void setFaite(boolean faite) {
+		this.faite = faite;
+	}	
 
 	public Etat() {
 		super();
 	}
 
-	public Etat(Long id, int dureeEstime, String commentaire, Intervention intervention) {
+	public Etat(Long id, int dureeEstime, String commentaire, boolean faite) {
 		super();
 		this.id = id;
 		this.dureeEstime = dureeEstime;
 		this.commentaire = commentaire;
-		this.intervention = intervention;
+		
+		this.faite = faite;
 	}
 
 	public Long getId() {
@@ -53,11 +59,4 @@ public class Etat {
 		this.commentaire = commentaire;
 	}
 
-	public Intervention getIntervention() {
-		return intervention;
-	}
-
-	public void setIntervention(Intervention intervention) {
-		this.intervention = intervention;
-	}
 }
