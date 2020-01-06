@@ -33,7 +33,7 @@ public class PfaProjectApplication implements ApplicationRunner {
     @Override
     public void run(ApplicationArguments args) throws Exception {
         // à décommenter pour auto insert Marque&Model de test (update application.properties)
-    	//this.insertMarquesModels();
+    	this.insertMarquesModels();
     }
 
     public void insertMarquesModels() {
